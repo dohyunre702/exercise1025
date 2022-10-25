@@ -85,6 +85,12 @@ public class UserDao {
         }
     }
 
+    //익명 클래스
+    public void add(User user) throws SQLException {
+        AddStrategy addStrategy = new AddStrategy(user);
+        jdbcContextWithStatementStrategy(addStrategy);
+    }
+
     //삭제
     public void deleteAll() throws SQLException {
         Connection c = null;
