@@ -1,11 +1,13 @@
 package dao;
 
-import likelion01.*;
-
+import likelion01.dao.UserDao;
+import likelion01.dao.UserDaoFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.sql.SQLException;
 
@@ -22,7 +24,7 @@ class UserDaoTest {
 
     @Test
     void addAndSelect() {
-        UserDao3 userDao = context.getBean("awsUserDao", UserDao3.class);
+        UserDao userDao = context.getBean("awsUserDao", UserDao.class);
         String id = "12";
         User user = new User(id, "DH", "1122333");
         userDao.add(user);
